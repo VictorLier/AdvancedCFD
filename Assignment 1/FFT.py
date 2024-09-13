@@ -30,6 +30,17 @@ np.savetxt('Assignment 1/Fixed Data/Upstream Lift FFT.txt', np.column_stack((frq
 # Find the frequency with the highest amplitude
 max_amplitude = np.max(abs(Y))
 max_amplitude_index = np.where(abs(Y) == max_amplitude)
-max_amplitude_freq = frq[max_amplitude_index]
+max_amplitude_freq = float(frq[max_amplitude_index])
 print('Max amplitude:', max_amplitude)
 print('Frequency with max amplitude:', max_amplitude_freq)
+
+# Find spring stifness
+import sympy as sp
+# Define the variables
+omega, k, m, k_0 = sp.symbols('omega k m k_0')
+
+eq1 = sp.Eq(omega, sp.sqrt(k/m))
+k_0 = sp.solve(eq1, k)[0]
+print('k_0:', k_0)
+
+print(k_0.subs({omega: max_amplitude_freq, m: 4/np.pi}))
