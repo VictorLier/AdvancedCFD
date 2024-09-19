@@ -24,7 +24,7 @@ plt.xlabel('Freq (Hz)')
 plt.ylabel('|Y(freq)|')
 plt.show()
 
-np.savetxt('Assignment 1/Fixed Data/Upstream Lift FFT.txt', np.column_stack((frq, abs(Y))), delimiter=' ', fmt='%s')
+np.savetxt('Assignment 1/Fixed Data/Upstream Lift.txt', np.column_stack((frq, abs(Y))), delimiter=' ', fmt='%s')
 
 
 # Find the frequency with the highest amplitude
@@ -43,4 +43,4 @@ eq1 = sp.Eq(omega, sp.sqrt(k/m))
 k_0 = sp.solve(eq1, k)[0]
 print('k_0:', k_0)
 
-print(k_0.subs({omega: max_amplitude_freq, m: 4/np.pi}))
+print(k_0.subs({omega: max_amplitude_freq * 2 * np.pi, m: 4/np.pi}))
