@@ -44,3 +44,4 @@ k_0 = sp.solve(eq1, k)[0]
 print('k_0:', k_0)
 
 print(k_0.subs({omega: max_amplitude_freq * 2 * np.pi, m: 4/np.pi}))
+print('Omega is:', max_amplitude_freq * 2 * np.pi)
