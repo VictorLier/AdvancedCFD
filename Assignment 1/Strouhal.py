@@ -12,6 +12,6 @@ f = sp.solve(eq1, f)
 # Values
 L_val = 1
 U_val = 1
-St_val = 0.21 # Trukket fra chatten
+St_val = 0.2
 
 print(f[0].subs({L: L_val, U: U_val, St: St_val}))
